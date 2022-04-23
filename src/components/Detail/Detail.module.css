@@ -1,0 +1,44 @@
+/* Small Screen */
+.detail {
+    background: #ffff;
+    max-width: 100%;
+    height: auto;
+    box-shadow:0 3px 3px #979dac;
+    border-radius: 10px;
+    margin: 1rem;
+}
+
+.detail__title {
+    color: #073b4c;
+    font-size: 1.563rem;
+
+    margin-bottom: 1rem;
+}
+
+.detail__positif{
+    color: #06D6A0;
+    font-size: 1.953rem;
+}
+.detail__sembuh{
+    color: #118AB2;
+    font-size: 1.953rem;
+}
+.detail__meninggal{
+    color: #EF476F;
+    font-size: 1.953rem;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+    .detail {
+        flex-basis: 50%;
+    }
+}
+
+/* Large Screen */
+@media (min-width: 992px) {
+    .detail {
+        flex-basis: 25%;
+        padding: 1rem;
+    }
+}

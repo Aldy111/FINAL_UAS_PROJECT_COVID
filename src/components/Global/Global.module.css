@@ -1,0 +1,38 @@
+/* Small Screen */
+.container {
+    margin: 1rem;
+}
+.Global {
+    margin: 5rem 0;
+    text-align: center;
+}
+.Global__title{
+    color: #06D6A0;
+    margin-bottom: 1rem;
+    font-size: 2.441rem;
+}
+.Global__title2{
+    color: #118AB2;
+    font-size: 1rem;
+}
+.Global__container{
+    display: flex;
+    flex-direction: column;
+}
+  /* Medium Screen */
+  @media (min-width: 768px) {
+    .Global__container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  /* Large Screen */
+  @media (min-width: 992px) {
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+  }

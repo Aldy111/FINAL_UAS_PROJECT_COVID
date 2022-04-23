@@ -1,0 +1,71 @@
+/* Small Screen */
+.container {
+    margin: 1rem;
+}
+.province {
+    margin: 5rem 0;
+    text-align: center;
+}
+.province__title{
+    color: #06D6A0;
+    margin-bottom: 1rem;
+    font-size: 2.441rem;
+}
+.province__title2{
+    color: #118AB2;
+    font-size: 1rem;
+}
+.province__container{
+    display: flex;
+    flex-direction: column;
+
+}
+.table {
+  border-collapse: collapse;
+
+}
+.table__thead th{
+  color: #06D6A0;
+  padding: 0.1rem;
+  font-size: 13px;
+}
+.table__tbody td{
+  font-size: 10px;
+  padding: 0.1rem;
+
+}
+
+  /* Medium Screen */
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .table__thead th tr {
+        padding: 1rem;
+        font-size: 22px;
+    }
+    .table__tbody tr td {
+        padding: 1rem;
+        font-size: 18px;
+    }
+  }
+  
+  /* Large Screen */
+  @media (min-width: 992px) {
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+    .table__thead th tr {
+        padding: 1rem;
+        font-size: 25px;
+    }
+    .table__tbody tr td {
+        padding: 1rem;
+        font-size: 22px;
+    }
+
+  }
