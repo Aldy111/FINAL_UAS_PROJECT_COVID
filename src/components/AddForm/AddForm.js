@@ -1,11 +1,15 @@
 import { useState } from "react";
 import styles from "../AddForm/AddForm.module.css"
 import asset from "../../Assets/form.png"
+import { useDispatch } from "react-redux";
+import { updateProvinces } from "../features/provinceSlice";
 const AddForm = (props) =>{
     const {province , setProvince} = props;
     const [ kota, setKota] = useState("");
-    const [ status, setStatus ] = useState("");
+    const [ status, setStatus ] = useState("Positif");
     const [ jumlah, setJumlah ] = useState();
+
+    const dispatch = useDispatch();
 
     function handleKota (e) {
         setKota(e.target.value);
@@ -21,32 +25,11 @@ const AddForm = (props) =>{
 
     function handleSubmit (e) {
         e.preventDefault();
-        const data = province;
+        
+        const dataProvinces = {status,jumlah,kota};
+        dispatch(updateProvinces(dataProvinces))
 
-        if (jumlah > 0) {
-        let value = parseInt(jumlah);
-        let nama = data.findIndex((data) => data.kota === kota);
-
-        if (status === "Positif" || status === "kasus") {
-
-            data[nama].kasus = parseInt(data[nama].kasus) + value;
-
-        } else if (status === "Dirawat") {
-
-            data[nama].dirawat = parseInt(data[nama].dirawat) + value;
-
-        } else if (status === "Sembuh") {
-            
-            data[nama].sembuh = parseInt(data[nama].sembuh) + value;
-
-        } else if (status === "Meninggal") {
-            
-            data[nama].meninggal = parseInt(data[nama].meninggal) + value;
-
-        }
-        setProvince([...data]);
-
-        } 
+        console.log(dataProvinces)
     }
 
     
@@ -66,7 +49,7 @@ const AddForm = (props) =>{
                                     {
                                         province.map((data)=>{
                                             return (
-                                                <option key={data.kota} value={data.kota}>{data.kota}</option>
+                                                <option value={data.kota}>{data.kota}</option>
                                             )
                                         })
                                     }
@@ -75,10 +58,11 @@ const AddForm = (props) =>{
                         <div className = {styles.form__group}>
                             <label className = {styles.form__label} htmlFor="">status</label>
                                     <select className = {styles.form__select} name="status" id="status" value={status} onChange = {handleStatus}>
-                                        <option value="Positif">Positif</option>
-                                        <option value="Sembuh">Sembuh</option>
-                                        <option value="Meninggal">Meninggal</option>
-                                        <option value="Dirawat">Dirawat</option>
+                                        <option value="positif">Positif</option>
+                                        <option value="sembuh">Sembuh</option>
+                                        <option value="dirawat">Dirawat</option>
+                                        <option value="meninggal">Meninggal</option>
+                                        
                                     </select>
                         </div>
                         <div className = {styles.form__group}>

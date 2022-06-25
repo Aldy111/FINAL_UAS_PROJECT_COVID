@@ -1,7 +1,8 @@
 
+import { useSelector } from "react-redux";
 import styles from "../Province/Province.module.css"
-const Province = (props) => {
-    const {province} = props;
+const Province = () => {
+    const provinces = useSelector((state)=>state.provinces.provinces)
     let no = 1;
     return(
         <div className = {styles.container}>
@@ -22,16 +23,17 @@ const Province = (props) => {
                     </thead>
 
                     <tbody className = {styles.table__tbody}>
-                    { province.map((data)=>{
+                    { provinces.map((data)=>{
 
                     return(
-                        <tr key = {data.kota} >
+                        <tr>
                                 <td>{no++}</td>
                                 <td>{data.kota}</td>
                                 <td>{data.kasus}</td>
                                 <td>{data.sembuh}</td>
-                                <td>{data.meninggal}</td>
                                 <td>{data.dirawat}</td>
+                                <td>{data.meninggal}</td>
+                                
                             </tr>
                         )
 

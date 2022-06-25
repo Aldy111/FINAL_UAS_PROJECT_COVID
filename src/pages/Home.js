@@ -1,10 +1,14 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import AddForm from "../components/AddForm/AddForm";
-import Footer from "../components/Footer/Footer";
+import { updateCovids } from "../components/features/covidsSlice";
 import Global from "../components/Global/Global";
 import Hero from "../components/Hero/Hero";
-import Navbar from "../components/Navbar/Navbar";
 import Province from "../components/Province/Province";
+import Summary from "../components/summary";
+import ENDPOINTS from "../utils/constants/endpoint";
 import indonesia from "../utils/constants/indonesia";
 import provinces from "../utils/constants/provinces";
 
@@ -20,16 +24,41 @@ import provinces from "../utils/constants/provinces";
 }
  */
 function Home() {
-  const [global] = useState(indonesia.indonesia);
-  const [province,setProvince] = useState(provinces.provinces);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+      getGlobalCovid();
+  },[])
+
+  const getGlobalCovid = async()=> {
+      const response = await axios(ENDPOINTS.GLOBAL);
+      const covidData = [
+        {
+          statusName : "Confirmed",
+          ...response.data.confirmed,
+        },
+        {
+          statusName : "Recovered",
+          ...response.data.recovered,
+        },
+        {
+          statusName : "Deaths",
+          ...response.data.deaths,
+        },
+      ];
+
+      dispatch(updateCovids(covidData))
+  }
+
+
   return (
     <>
-      <Navbar />
       <Hero />
-      <Global global = {global}/>
+      <Global title = "Global" title2 = "Data Covid Beerdasarkan Global"/>
+      <Summary title = "Summary" title2 ="Summary Data Global"/>
+    {/*  <Global global = {global}/>
       <Province province = {province} setProvince = {setProvince} />
-      <AddForm province = {province} setProvince = {setProvince} />
-      <Footer />
+      <AddForm province = {province} setProvince = {setProvince} /> */}
     </>
   );
 }

@@ -1,0 +1,44 @@
+/* Small Screen */
+.container {
+    margin: 1rem;
+}
+.Summary {
+    margin: 5rem 0;
+    text-align: center;
+}
+.Summary__title{
+    color: #06D6A0;
+    margin-bottom: 1rem;
+    font-size: 2.441rem;
+}
+.Summary__title2{
+    color: #118AB2;
+    font-size: 1rem;
+}
+.Summary__container{
+    display: flex;
+    flex-direction: column;
+}
+.Summary__image {
+    max-width: 100%;
+    border-radius: 10px;
+    height: auto;
+    box-shadow:0 3px 3px #979dac;
+}
+  /* Medium Screen */
+  @media (min-width: 768px) {
+    .Summary__container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  /* Large Screen */
+  @media (min-width: 992px) {
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+  }

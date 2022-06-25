@@ -1,12 +1,17 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import Detail from "../Detail/Detail";
 import styles from "../Global/Global.module.css"
-const Global = (props) => {
-    const {global} = props;
+const Global = ({title ,title2}) => {
+    /* const {covids,title,title2,setCovids} = props; */
+   /*  const arrayCovid = [covids.confirmed , covids.recovered , covids.deaths]; */
+    /* console.log(arrayCovid) */
+    const covids = useSelector((state)=>state.covids.covids)
     return (
         <div className = {styles.container}>
             <section className = {styles.Global}>
-                    <h2 className = {styles.Global__title}>Indonesia</h2>
-                    <p className = {styles.Global__title2}>Data Covid Berdasarkan Global</p>
+                    <h2 className = {styles.Global__title}>{title}</h2>
+                    <p className = {styles.Global__title2}>{title2}</p>
                         <div className = {styles.Global__container}>
 
                             {/*
@@ -14,8 +19,8 @@ const Global = (props) => {
                                 render Component detail dan kirim props detail
                              */}
                                 {
-                                    global.map((detail)=>{
-                                        return <Detail key = {detail.status} detail = {detail}/>
+                                    covids.map((detail)=>{
+                                        return <Detail key = {detail.statusName} detail = {detail}/>
                                     })
                                 }
                         </div>
