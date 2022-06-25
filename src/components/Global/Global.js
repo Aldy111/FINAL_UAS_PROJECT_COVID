@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { useSelector } from "react-redux";
 import Detail from "../Detail/Detail";
 import styles from "../Global/Global.module.css"

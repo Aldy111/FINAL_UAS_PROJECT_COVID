@@ -16,7 +16,10 @@
 .footer__item {
     margin-bottom: 1rem;
 }
-
+.footer__link {
+    text-decoration: none;
+    color: #fff;
+}
 /* medium Screnn */
 
 @media (min-width :768px) {

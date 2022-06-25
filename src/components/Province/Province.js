@@ -10,6 +10,7 @@ const Province = () => {
                 <h2 className = {styles.province__title}>PROVINSI</h2>
                 <p className = {styles.province__title2}>Data Covid Berdasarkan Provinsi</p>
                 <div className = {styles.province__container}>
+                    
                 <table  border = "1px" className = {styles.table}>
                     <thead className = {styles.table__thead}>
                     <tr>
@@ -42,6 +43,7 @@ const Province = () => {
                 }
                     </tbody>
             </table>
+            
                 </div>
             </section>
         </div>

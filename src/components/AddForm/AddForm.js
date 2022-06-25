@@ -4,9 +4,9 @@ import asset from "../../Assets/form.png"
 import { useDispatch } from "react-redux";
 import { updateProvinces } from "../features/provinceSlice";
 const AddForm = (props) =>{
-    const {province , setProvince} = props;
+    const {province } = props;
     const [ kota, setKota] = useState("");
-    const [ status, setStatus ] = useState("Positif");
+    const [ status, setStatus ] = useState("kasus");
     const [ jumlah, setJumlah ] = useState();
 
     const dispatch = useDispatch();
@@ -58,7 +58,7 @@ const AddForm = (props) =>{
                         <div className = {styles.form__group}>
                             <label className = {styles.form__label} htmlFor="">status</label>
                                     <select className = {styles.form__select} name="status" id="status" value={status} onChange = {handleStatus}>
-                                        <option value="positif">Positif</option>
+                                        <option value="kasus">Positif</option>
                                         <option value="sembuh">Sembuh</option>
                                         <option value="dirawat">Dirawat</option>
                                         <option value="meninggal">Meninggal</option>

@@ -1,16 +1,12 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
-import AddForm from "../components/AddForm/AddForm";
 import { updateCovids } from "../components/features/covidsSlice";
 import Global from "../components/Global/Global";
 import Hero from "../components/Hero/Hero";
-import Province from "../components/Province/Province";
 import Summary from "../components/summary";
 import ENDPOINTS from "../utils/constants/endpoint";
-import indonesia from "../utils/constants/indonesia";
-import provinces from "../utils/constants/provinces";
+
 
 /* function Main() {
   
